@@ -1,9 +1,12 @@
 var http = require('http');
+var server = http.createServer(engine);
 
-
-http.createServer(engine).listen(1337);
+server.listen(1337,function(){
+	console.log("server requested");
+});
 
 function engine(request,response){
-	response.writeHead(200,{'Content-Type':'text/plain'});
-	response.end('Hey there from server');
+	 response.writeHead(200,{'Content-Type':'text/plain'});
+	 response.end('Hey there from server);
 }
+
