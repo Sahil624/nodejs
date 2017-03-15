@@ -31,32 +31,37 @@ app.post('/login',function (req,res) {
 		res.redirect('/redirect')
 	}
 
-	if(req.body.username=='admin'&& req.body.pass=='admin'){
+	//if(req.body.username=='admin'&& req.body.pass=='admin'){
 		session.uni = req.body.username;
-	}
+	//}
 
 	res.redirect('/redirect');
 
 });
 
+app.get('/admin',function(req,resp){
+	session = req.session;
+	if(session.uni != 'admin'){
+		resp.send('Unauthorised access .<a href=\"/login\">login</a>')
+	}
+	resp.send("Welcome admin. <a href=\"/logout\">logout</a>")
+})
+
 app.get('/logout',function(req,res){
 	req.session.destroy(function(err){
-		if(err){
-			console.log(err);
-			res.redirect('/login');
-		}
+		res.redirect('/login');
 	})
 })
 
 app.get('/redirect',function(req,res){
 	session = req.session;
 
-	if(session.uni){
+	if(session.uni == 'admin'){
 		res.redirect('/admin');
 	}
 
 	else{
-		res.end("Who are you?")
+		res.send(req.session.uni+" Not Found.	<a href=\"/logout\">logout</a>")
 	}
 });
 
