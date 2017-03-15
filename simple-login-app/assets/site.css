@@ -1,4 +1,40 @@
+form{
+	margin: auto;
+	width: 50%;
+	margin-top: 15%;
+	background-color: gray;
+	height: 250px;
+	border-radius: 20px;
+	border: 1px solid white;
+}
+
+input{
+	width: 60%;
+	margin: auto;
+	margin-top: 20px; 
+	margin-left: 10%;
+	height: 20px;
+}
+
+.top{
+	margin-top: 40px;
+}
+
+.btn{
+	width: 20%;
+	margin-left: 40%;
+	margin-top: 40px;
+	height: 40px;
+	border: 1px solid gray;
+	border-radius: 20px;
+}
+
+.btn:hover{
+	background-color: darkgray;
+	color: white;
+	border: 1px solid white;
+}
+
 body{
-	margin: 0;
-	height: 0;
+	background-color: lightgray;
 }

@@ -3,6 +3,8 @@ var sessions = require('express-session')
 var bodyparser = require('body-parser');
 var app = express();
 
+app.use('/cssfiles', express.static(__dirname+'/assets'));
+
 var session;
 
 app.use(bodyparser.json());
